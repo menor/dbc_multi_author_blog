@@ -3,7 +3,7 @@ require 'pp'
 
 describe 'User Controller' do
 
-  before do
+  before(:each) do
     @user = FactoryGirl.build(:user)
   end
 

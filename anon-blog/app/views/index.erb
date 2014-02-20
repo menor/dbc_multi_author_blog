@@ -10,15 +10,12 @@
 </div>
 <div class="container">
   <h1>Welcome to Blogorama!</h1>
-  <ul>
     <% @posts.each do |post|%>
-    <li>
       <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
       <p><%= post.content %></p>
       <hr/>
-    </li>
+
     <% end %>
-  </ul>
 </div>
 <div class="container">
   <h2>Browse by tag:</h2>
