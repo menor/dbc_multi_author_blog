@@ -9,13 +9,18 @@ posts = [
 tags.each do |tag|
   Tag.create(name: tag)
 end
-post =Post.create valid_input
-tag = Tag.create valid_input
-tag2 = Tag.create valid_input
-post_tag = PostTag.create post_id: post.id, tag_id: tag.id
-post_tag = PostTag.create post_id: post.id, tag_id: tag2.id
 
-# posts.each do |post|
-#   Post.create!(title: post[:title], content: post[:content],
-#     post[:tags].each do {|tag| tag: tag})
-# end
+posts.each do |post|
+  Post.create!(title: post[:title], content: post[:content])
+end
+
+# post =Post.create valid_input
+# tag = Tag.create valid_input
+# tag2 = Tag.create valid_input
+# 9.times {PostTag.create post_id: Post.all.sample.id, tag_id: Tag.all.sample.id}
+PostTag.create post_id: 1, tag_id: 1
+PostTag.create post_id: 1, tag_id: 2
+PostTag.create post_id: 2, tag_id: 2
+PostTag.create post_id: 3, tag_id: 2
+PostTag.create post_id: 3, tag_id: 3
+
