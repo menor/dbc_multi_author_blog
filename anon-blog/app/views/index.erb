@@ -10,6 +10,14 @@
     <% end %>
   </ul>
 </div>
-<div class="container button">
-  <a href="/posts/new">Share your thoughts</a>
+<div class="container">
+  <h2>Browse by tag:</h2>
+    <% @tags.each do |tag|%>
+      <a class="tagcloud" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+    <% end %>
 </div>
+<div class="container button">
+  <h2><a href="/posts/new">Share your thoughts</a></h2>
+</div>
+
+

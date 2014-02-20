@@ -19,11 +19,10 @@ describe "TagController" do
     end
   end
 
-    it "should display the appropriate posts when selected by tag GET " do
-      # get "/tags/Funky"
-      # p last_response.body
-      #.to include("A pajera")
-    end
+    # it "should display the appropriate posts when selected by tag GET " do
+    #   get "/tags/funky"
+    #   expect(last_response.body).to include("A pajera")
+    # end
   # describe 'create a new post' do
 
   #   it 'should add a new post' do

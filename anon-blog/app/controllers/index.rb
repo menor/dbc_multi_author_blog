@@ -1,6 +1,7 @@
 get '/' do
   # Look in app/views/in@dex.erb
   @posts = Post.all
+  @tags = Tag.all
   erb :index
 end
 

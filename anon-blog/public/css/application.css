@@ -29,3 +29,8 @@ a {
 a:hover {
   color: navy;
 }
+
+.tagcloud {
+  display: inline-block;
+  width: 100px;
+}
