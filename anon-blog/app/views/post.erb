@@ -1,5 +1,10 @@
 <div class="container">
   <h1><%= @post.title %></h1>
   <p><%= @post.content %></p>
-  <a href="/">Back Home</a>
+  <a href="/">Back Home</a></br>
+  <a href="/posts/edit/<%= @post.id %>">Edit this post</a></br>
+  <form action='/posts/<%= @post.id %>' method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input value="Delete" type='submit'>
+  </form>
 </div>
