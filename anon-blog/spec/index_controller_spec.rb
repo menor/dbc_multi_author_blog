@@ -1,30 +1,22 @@
 require 'spec_helper'
 
-describe "IndexController (this is a skeleton controller test!)" do
 
-  describe 'get all bands' do
-    it 'should see all bands' do
-      get "/bands"
-      expect(last_response).to be_ok
-    end
+describe "IndexController" do
+  before do
+    post = Post.create(title: 'Old Lady Voice', content: 'A pajera abiertaaaa!!')
+    tag = Tag.create(name: 'Funky')
+    post_tag = PostTag.create(post_id: post.id, tag_id: tag.id)
   end
 
-  describe 'create a new band' do
-    band_name = 'chromatics'
-    new_params = {
-        name: band_name
-      }
-    new_session = {
-      'rack.session' => {
-        # Could preload stuff into the session here...
-      }
-    }
-    it 'should add a new band' do
-      expect{
-        post('/bands', new_params, new_session)
-      }.to change(Band, :count).by(1)
-      last_response.should be_ok
-      last_response.body.should == band_name
+  describe 'get all posts' do
+    it 'should see all posts' do
+      get "/"
+      expect(last_response).to be_ok
+    end
+
+    it 'should list posts' do
+      get "/"
+      expect(last_response.body).to include("Old Lady Voice")
     end
   end
 end
