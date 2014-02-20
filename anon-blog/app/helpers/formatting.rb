@@ -7,7 +7,7 @@ helpers do
     !!session[:id]
   end
 
-  def user?
-    @author.id == session[:id]
+  def author?
+    @post.user.id == session[:id]
   end
 end

@@ -8,9 +8,13 @@ get '/posts/new' do
 end
 
 get '/posts/edit/:post' do
-  @post = Post.find_by_id(params[:post])
-  @tags = Tag.all
-  erb :edit
+    @post = Post.find_by_id(params[:post])
+    @tags = Tag.all
+  if author?
+    erb :edit
+  else
+    redirect '/'
+  end
 end
 
 post '/posts/edit/:post' do
@@ -27,14 +31,12 @@ end
 
 get '/posts/:post' do
   @post = Post.find_by_id(params[:post])
-  @author = @post.user
   if @post
     erb :post
   else
     redirect '/'
   end
 end
-
 
 
 post '/posts/new' do
