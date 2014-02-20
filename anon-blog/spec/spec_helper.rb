@@ -1,5 +1,5 @@
 require 'rubygems'
-
+require 'factory_girl'
 # All our specs should require 'spec_helper' (this file)
 
 # If RACK_ENV isn't set, set it to 'test'.  Sinatra defaults to development,
@@ -10,6 +10,9 @@ ENV['RACK_ENV'] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'shoulda-matchers'
 require 'rack/test'
+
+FactoryGirl.definition_file_paths = %w{./spec/factories}
+FactoryGirl.find_definitions
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods

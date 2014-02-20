@@ -1,16 +1,21 @@
 <div class="container">
   <h1>Share your Thoughts</h1>
-  <form action='/posts/new' method="post">
-    <label for 'title'> Title: </label><br />
-    <input type="text" name="title" /><br />
-    <label for 'content'> Your awesome opinion: </label><br />
-    <textarea rows='15' cols='60' name="content" /></textarea><br />
-    <label for 'tags'> Pick tags that express your feelings: </label>
-      <% @tags.each do |tag|%>
-        <input name="<%= tag.id %>" type='checkbox' value="____tag_id____"><%= tag.name %></input>
-      <% end %>
+  <% if session[:id]  %>
+    <form action='/posts/new' method="post">
+      <label for 'title'> Title: </label><br />
+      <input type="text" name="title" /><br />
+      <label for 'content'> Your awesome opinion: </label><br />
+      <textarea rows='15' cols='60' name="content" /></textarea><br />
+      <label for 'tags'> Pick tags that express your feelings: </label>
+        <% @tags.each do |tag|%>
+          <input name="<%= tag.id %>" type='checkbox' value="____tag_id____"><%= tag.name %></input>
+        <% end %>
 
-    <input type='submit' class='submit_button' ></input>
-  </form>
-
+      <input type='submit' class='submit_button' ></input>
+    </form>
+    <% else %>
+    <p> Sign In or Sign Up to Write a Post</p>
+    <li><a href="/users/new">Sign up</a></li>
+    <li><a href="/users/login">Log in</a></li>
+    <% end  %>
 </div>
