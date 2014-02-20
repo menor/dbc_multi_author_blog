@@ -1,9 +1,9 @@
 tags = ["Old", "Funny", "Loco"]
 
 posts = [
-  {title: 'Old Lady Voice', content: 'A pajera abiertaaaa!!', tags:[1,2] },
-  {title: 'Phantom of the Opera', content: 'Coughing and Laughing', tags:[2] },
-  {title: 'Hello', content: 'Just wanted to say hello', tags:[2,3] }
+  {title: 'Old Lady Voice', content: 'A pajera abiertaaaa!!'},
+  {title: 'Phantom of the Opera', content: 'Coughing and Laughing' },
+  {title: 'Hello', content: 'Just wanted to say hello'}
 ]
 
 tags.each do |tag|
