@@ -13,3 +13,18 @@ get '/posts/:post' do
     redirect '/'
   end
 end
+
+
+post '/posts/new' do
+  puts "*"*20
+  p params
+  @title = params.delete("title")
+  @content = params.delete("content")
+  p @tags = params.keys
+  post = Post.create( title: @title, content: @content )
+  @tags.each do |tag_id|
+    PostTag.create(post_id: post.id, tag_id: tag_id)
+  end
+  redirect '/'
+
+end
