@@ -1,6 +1,10 @@
 get '/posts/new' do
-  @tags= Tag.all
-  erb :new_post_form
+  if loggedin?
+    @tags = Tag.all
+    erb :new_post_form
+  else
+    redirect '/'
+  end
 end
 
 get '/posts/edit/:post' do
@@ -23,6 +27,7 @@ end
 
 get '/posts/:post' do
   @post = Post.find_by_id(params[:post])
+  @author = @post.user
   if @post
     erb :post
   else
@@ -36,7 +41,7 @@ post '/posts/new' do
   @title = params.delete("title")
   @content = params.delete("content")
   @tags = params.keys
-  post = Post.create( title: @title, content: @content )
+  post = Post.create( title: @title, content: @content, user_id: session[:id])
   @tags.each do |tag_id|
     PostTag.create(post_id: post.id, tag_id: tag_id)
   end

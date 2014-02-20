@@ -37,7 +37,8 @@ end
 
 # User logging out
 post '/users/logout' do
-  session[:id] = nil
+  session.clear
   redirect '/'
 end
+
 

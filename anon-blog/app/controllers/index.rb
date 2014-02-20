@@ -1,6 +1,6 @@
 get '/' do
   # Look in app/views/in@dex.erb
-  @user = User.find(session[:id])
+  @user = User.find(session[:id]) if loggedin?
   @posts = Post.all
   @tags = Tag.all
   erb :index
