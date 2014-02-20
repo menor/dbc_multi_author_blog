@@ -1,3 +1,13 @@
+# All Posts For a User
+
+get '/users/:user_id/posts' do
+  @user = User.find(session[:id])
+  @posts = User.find(params[:user_id]).posts
+  @author = User.find(params[:user_id])
+  erb :"posts/show"
+end
+
+
 
 # User prompt to login
 get '/users/login' do
